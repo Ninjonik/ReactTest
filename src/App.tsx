@@ -1,22 +1,20 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Landing from './pages/landing';
+import About from './pages/about';
 
-import './App.css';
-import { FC } from 'react'
-import HelloWorld from './components/HelloWorld'
-import Clock from './components/Clock';
-
-const App: FC = () => {
+const App = () => {
   return (
-    <div className="App background-img">  
-      <div className="grid h-screen place-items-center">
-        <div>
-          <h1 className="text-3xl font-bold first-letter:underline">
-            <HelloWorld /> 
-          </h1>
-          <h2 className="font-light"><Clock /></h2>
-        </div>
-      </div>
+    <div className="App background-img">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
